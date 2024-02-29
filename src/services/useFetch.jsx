@@ -28,7 +28,7 @@ function useFetch() {
 
     if (res.ok) {
       alert(data.message);
-      return;
+      return true;
     }
 
     if (res.status === 400) {
@@ -48,6 +48,8 @@ function useFetch() {
     } else if (res.status === 500) {
       alert(data?.message ?? "Error interno.");
     }
+
+    return false;
   };
 
   return { handleSubmitPost };
