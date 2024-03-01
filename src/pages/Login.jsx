@@ -1,25 +1,20 @@
 import useFetch from "../services/useFetch";
+import { useMyContext } from "../services/context";
+import { Navigate } from "react-router-dom";
 
 function Login() {
+  const { user, loginUser } = useMyContext();
   const { handleSubmitPost } = useFetch();
 
-  const isLogin = localStorage.getItem("isLogin");
-  if (isLogin) {
-    window.location.href = "/dashboard";
-    return;
-  }
-
   const handleLogin = async (e) => {
-    const isLogin = await handleSubmitPost(e);
-
-    if (isLogin) {
-      localStorage.setItem("isLogin", true);
-      window.location.href = "/dashboard";
-    }
+    e.preventDefault();
+    const data = await handleSubmitPost(e);
+    loginUser(data);
   };
 
   return (
     <div>
+      {user && <Navigate to="/dashboard" />}
       <h1>Login</h1>
       <form onSubmit={handleLogin} action="http://127.0.0.1:8000/api/login">
         <label htmlFor="">Correo:</label>

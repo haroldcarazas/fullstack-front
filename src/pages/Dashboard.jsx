@@ -1,13 +1,18 @@
+import { Navigate } from "react-router";
+import { useMyContext } from "../services/context";
+
 function Dashboard() {
-  const isLogin = localStorage.getItem("isLogin");
-  if (!isLogin) {
-    window.location.href = "/login";
-    return;
-  }
+  const { user, logoutUser } = useMyContext();
+
+  const handleLogout = () => {
+    logoutUser();
+  };
 
   return (
     <div>
-      <h1>¡Bienvenido!</h1>
+      {!user && <Navigate to="/login" />}
+      <h1>¡Bienvenido {user && user.name}!</h1>
+      <button onClick={handleLogout}>Logout</button>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga hic
         perspiciatis, quo suscipit atque libero quaerat incidunt tempore.
