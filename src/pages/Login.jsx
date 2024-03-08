@@ -16,7 +16,10 @@ function Login() {
     <div>
       {user && <Navigate to="/dashboard" />}
       <h1>Login</h1>
-      <form onSubmit={handleLogin} action="http://127.0.0.1:8000/api/login">
+      <form
+        onSubmit={handleLogin}
+        action="https://fullstack-back-production.up.railway.app/api/login"
+      >
         <label htmlFor="">Correo:</label>
         <input type="email" name="email" />
 

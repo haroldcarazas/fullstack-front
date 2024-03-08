@@ -8,7 +8,7 @@ function Register() {
       <h1>Register</h1>
       <form
         onSubmit={handleSubmitPost}
-        action="http://127.0.0.1:8000/api/register"
+        action="https://fullstack-back-production.up.railway.app/api/register"
       >
         <label htmlFor="">Nombre:</label>
         <input name="name" type="text" />
