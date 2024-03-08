@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <MyProvider>
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/fullstack-front" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<h1>404</h1>} />
