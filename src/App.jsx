@@ -11,8 +11,8 @@ function App() {
       <MyProvider>
         <Routes>
           <Route path="/fullstack-front" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/fullstack-front/login" element={<Login />} />
+          <Route path="/fullstack-front/dashboard" element={<Dashboard />} />
           <Route path="*" element={<h1>404</h1>} />
         </Routes>
       </MyProvider>
